@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Inventory Dashboard of Super Shop Management System">
+  <title>Inventory Dashboard | Super Shop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  
+  <header class="header">
+    <a href="Inventory.html" class="logo">Super<span>Shop</span></a>
+    <div class="user-info">
+      <span class="badge admin">Inventory Manager</span>
+      <span>Welcome, Admin</span>
+      <a href="index.html" class="btn btn-small btn-light">Logout</a>
+    </div>
+  </header>
+
+  
+  <nav class="topnav">
+    <a href="Inventory.html" class="active">Dashboard</a>
+    <a href="Product-catalog.html">Product Catalog</a>
+    <a href="Stock-alerts.html">Stock Alerts</a>
+    <a href="Supplier-restock.html">Supplier Restock</a>
+  </nav>
+
+  <main class="container">
+
+   
+
+    <section class="page-section">
+      <h2 class="page-title">Inventory Dashboard</h2>
+      <p class="page-subtitle">Monitor products, stock levels and supplier activities.</p>
+
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Products</h3>
+          <p class="stat-number" id="totalProducts">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Total Stock Units</h3>
+          <p class="stat-number" id="totalStock">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Low Stock Items</h3>
+          <p class="stat-number" id="lowStock">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Out of Stock</h3>
+          <p class="stat-number" id="outOfStock">0</p>
+        </div>
+      </div>
+
+      
+      <section class="content-card">
+        <h3>Quick Actions</h3>
+        <div class="action-buttons">
+          <a href="Product-catalog.html" class="btn">Manage Products</a>
+          <a href="Stock-alerts.html" class="btn">View Stock Alerts</a>
+          <a href="Supplier-restock.html" class="btn">Restock Products</a>
+        </div>
+      </section>
+
+      
+      <section class="content-card">
+        <h3>Recent Products</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price (৳)</th>
+                <th>Quantity</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="recentProductsTable">
+              <!-- JavaScript displays product rows here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      
+      <section class="content-card">
+        <h3>Stock Alerts</h3>
+        <p>Check products that have reached their minimum stock level.</p>
+        <a href="Stock-alerts.html" class="btn">Check Alerts</a>
+      </section>
+    </section>
+  </main>
+
+  
+  <footer class="footer">
+    <p>Super Shop Management System &copy; 2026</p>
+    <p>Inventory Management Module</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
