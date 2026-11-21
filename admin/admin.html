@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Super Shop</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <a class="logo" href="admin.html">SUPER <span>SHOP</span></a>
+        <div class="user-info">
+            <span id="loggedInName">Admin</span>
+            <button class="btn btn-small btn-light" type="button" onclick="logout()">Logout</button>
+        </div>
+    </header>
+    <nav class="topnav">
+        <a href="admin.html">Admin Dashboard</a>
+        <a href="role-access.html">Role Access</a>
+        <a href="audit-security.html">Audit & Security</a>
+        <a href="backup-reports.html">Backup & Reports</a>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">Admin Dashboard</h1>
+        <p class="page-subtitle">Welcome to the Super Shop administration panel.</p>
+
+        <section class="stats-grid">
+            <div class="stat-card"><div class="stat-label">Total Users</div><div class="stat-number" id="statUsers">0</div></div>
+            <div class="stat-card green-border"><div class="stat-label">Active Users</div><div class="stat-number" id="statActive">0</div></div>
+            <div class="stat-card orange-border"><div class="stat-label">Pending Accounts</div><div class="stat-number" id="statPending">0</div></div>
+            <div class="stat-card blue-border"><div class="stat-label">Products</div><div class="stat-number" id="statProducts">0</div></div>
+            <div class="stat-card red-border"><div class="stat-label">Low Stock Items</div><div class="stat-number" id="statLowStock">0</div></div>
+            <div class="stat-card gold-border"><div class="stat-label">Today's Sales</div><div class="stat-number" id="statSales">৳0</div></div>
+        </section>
+
+        <div class="row">
+            <section class="col card">
+                <h3>Admin Management</h3>
+                <p>Manage user accounts and assign system roles.</p>
+                <p><a class="btn" href="role-access.html">Open Role Access</a></p>
+            </section>
+            <section class="col card">
+                <h3>Security Monitor</h3>
+                <p>Review login history, activity logs and security settings.</p>
+                <p><a class="btn" href="audit-security.html">Open Audit & Security</a></p>
+            </section>
+            <section class="col card">
+                <h3>Backup & Reports</h3>
+                <p>Download a demo data backup and generate CSV reports.</p>
+                <p><a class="btn" href="backup-reports.html">Open Backup & Reports</a></p>
+            </section>
+        </div>
+
+        <section class="card">
+            <h3>Recent System Activities</h3>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Date & Time</th><th>User</th><th>Activity Type</th><th>Description</th></tr></thead>
+                    <tbody id="recentActivityBody"></tbody>
+                </table>
+            </div>
+            <p id="activityCount" class="result-count"></p>
+        </section>
+
+        <p class="notice">Front-end demo: records are stored in this browser using localStorage. This is not a secure production user database.</p>
+    </main>
+
+    <footer class="footer">&copy; 2026 Super Shop Management System | Admin Control Panel</footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

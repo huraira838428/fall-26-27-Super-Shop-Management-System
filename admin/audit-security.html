@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit & Security | Super Shop</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <a class="logo" href="admin.html">SUPER <span>SHOP</span></a>
+        <div class="user-info">
+            <span id="loggedInName">Admin</span>
+            <button class="btn btn-small btn-light" type="button" onclick="logout()">Logout</button>
+        </div>
+    </header>
+    <nav class="topnav">
+        <a href="admin.html">Admin Dashboard</a>
+        <a href="role-access.html">Role Access</a>
+        <a href="audit-security.html">Audit & Security</a>
+        <a href="backup-reports.html">Backup & Reports</a>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">Audit Log & Security Monitor</h1>
+        <p class="page-subtitle">Review login attempts, user actions and basic security preferences.</p>
+
+        <section class="stats-grid">
+            <div class="stat-card"><div class="stat-label">Login Records</div><div class="stat-number" id="statLoginTotal">0</div></div>
+            <div class="stat-card green-border"><div class="stat-label">Successful Logins</div><div class="stat-number" id="statLoginSuccess">0</div></div>
+            <div class="stat-card red-border"><div class="stat-label">Failed Logins</div><div class="stat-number" id="statLoginFailed">0</div></div>
+            <div class="stat-card orange-border"><div class="stat-label">Blocked Accounts</div><div class="stat-number" id="statBlockedUsers">0</div></div>
+        </section>
+
+        <section class="card">
+            <h3>User Login History</h3>
+            <div class="search-bar">
+                <input type="text" id="loginSearch" placeholder="Search email or role" onkeyup="renderLoginHistory()">
+                <select id="loginStatusFilter" onchange="renderLoginHistory()">
+                    <option value="All">All Results</option>
+                    <option value="Successful">Successful</option>
+                    <option value="Failed">Failed</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Blocked">Blocked</option>
+                </select>
+            </div>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Date & Time</th><th>Email</th><th>Selected Role</th><th>Result</th></tr></thead>
+                    <tbody id="loginTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>System Activity Log</h3>
+            <div class="search-bar">
+                <select id="logTypeFilter" onchange="renderActivityLog()">
+                    <option value="All">All Activity Types</option>
+                    <option>User</option><option>Security</option><option>Settings</option><option>Backup</option><option>Report</option>
+                </select>
+                <select id="logUserFilter" onchange="renderActivityLog()">
+                    <option value="All">All Users</option>
+                </select>
+            </div>
+            <p id="logCount" class="result-count"></p>
+            <div id="logBoard" class="notice-board"></div>
+            <p class="form-buttons"><button class="btn btn-danger" type="button" onclick="clearActivityLog()">Clear Activity Log</button></p>
+        </section>
+
+        <section class="card">
+            <h3>Security Settings</h3>
+            <form action="#" method="post" onsubmit="return saveSecuritySettings();">
+                <p><label><input type="checkbox" id="settingLoginNotice"> Enable login notification (demo setting)</label></p>
+                <p><label><input type="checkbox" id="settingFailedNotice"> Show failed login alerts</label></p>
+                <p><label><input type="checkbox" id="settingSessionNotice"> Display session reminder</label></p>
+                <div class="form-buttons"><button class="btn" type="submit">Save Security Settings</button></div>
+            </form>
+            <div id="securityMessage" class="message" role="status"></div>
+        </section>
+
+        <p class="notice">These are browser-side demo logs, not tamper-proof security records. Real access control and audit logging must be enforced on a server.</p>
+    </main>
+
+    <footer class="footer">&copy; 2026 Super Shop Management System</footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/audit-security.js"></script>
+</body>
+</html>
