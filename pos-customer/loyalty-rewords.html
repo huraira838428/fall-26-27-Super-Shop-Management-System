@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Loyalty & Rewards</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <a class="brand" href="../index.html">
+                <span class="brand-mark">S</span>
+
+                <span>
+                    Super<span class="brand-light">Shop</span>
+                    <small>MANAGEMENT SUITE</small>
+                </span>
+            </a>
+
+            <div class="nav-label">WORKSPACE</div>
+
+            <a class="nav-link" href="../index.html">
+                Overview
+            </a>
+
+            <div class="nav-label">MODULES</div>
+
+            <a class="nav-link" href="../admin/admin.html">
+                Admin Control
+            </a>
+
+            <a class="nav-link" href="../manager/manager.html">
+                Store Operations
+            </a>
+
+            <a class="nav-link" href="../inventory/inventory.html">
+                Inventory
+            </a>
+
+            <a class="nav-link active" href="pos-customer.html">
+                POS & Customers
+            </a>
+
+            <div class="sidebar-bottom">
+
+                <div class="avatar">AD</div>
+
+                <div>
+                    <strong>Admin User</strong>
+                    <small>Management Suite</small>
+                </div>
+
+                <span class="online-dot"></span>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <div>
+                    <div class="eyebrow">
+                        CUSTOMERS / LOYALTY
+                    </div>
+
+                    <h1>Customer Loyalty & Rewards</h1>
+                </div>
+
+                <div class="top-actions">
+
+                    <button class="icon-btn" title="Notifications">
+                        ♧
+                    </button>
+
+                    <div class="top-avatar">AD</div>
+
+                </div>
+
+            </header>
+
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumbs">
+
+                <a href="../index.html">Overview</a>
+                / POS & Customer
+                / Customer Loyalty & Rewards
+
+            </div>
+
+
+            <!-- Introduction -->
+            <section class="intro-card">
+
+                <h2>Customer Loyalty & Rewards</h2>
+
+                <p>
+                    Manage customer membership, reward points
+                    and shopping benefits.
+                </p>
+
+            </section>
+
+
+            <!-- Statistics -->
+            <div class="stats-row">
+
+                <div class="small-stat">
+                    <span>Total Members</span>
+                    <strong>1,248</strong>
+                </div>
+
+                <div class="small-stat">
+                    <span>Points Redeemed</span>
+                    <strong>8,640</strong>
+                </div>
+
+                <div class="small-stat">
+                    <span>Reward Members</span>
+                    <strong>76%</strong>
+                </div>
+
+            </div>
+
+
+            <!-- Customer Loyalty Table -->
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h3>Customer Loyalty List</h3>
+
+                        <p>
+                            Customer profiles and point balances
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Search -->
+                <div class="table-toolbar">
+
+                    <input type="text" class="search-input" id="customerSearch" placeholder="Search customers...">
+
+                </div>
+
+
+                <!-- Table -->
+                <div class="table-wrap">
+
+                    <table id="loyaltyTable">
+
+                        <thead>
+
+                            <tr>
+                                <th>CUSTOMER</th>
+                                <th>MEMBERSHIP</th>
+                                <th>POINTS</th>
+                                <th>LIFETIME SPEND</th>
+                                <th>REWARD STATUS</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>Rahim Khan</td>
+                                <td>Gold</td>
+                                <td>1,250</td>
+                                <td>৳18,400</td>
+                                <td>
+                                    <span class="tag">
+                                        Eligible
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Nusrat Sultana</td>
+                                <td>Silver</td>
+                                <td>480</td>
+                                <td>৳7,250</td>
+                                <td>
+                                    <span class="tag">
+                                        Active
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Mehedi Ahmed</td>
+                                <td>Bronze</td>
+                                <td>90</td>
+                                <td>৳1,840</td>
+                                <td>
+                                    <span class="tag low">
+                                        Keep shopping
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Sumaiya Akter</td>
+                                <td>Gold</td>
+                                <td>1,800</td>
+                                <td>৳25,000</td>
+                                <td>
+                                    <span class="tag">
+                                        Eligible
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Tanvir Hasan</td>
+                                <td>Silver</td>
+                                <td>650</td>
+                                <td>৳9,500</td>
+                                <td>
+                                    <span class="tag">
+                                        Active
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- Membership Information -->
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h3>Membership Benefits</h3>
+
+                        <p>
+                            Customer membership levels
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="module-grid">
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">🥉</div>
+
+                        <h3>Bronze Membership</h3>
+
+                        <p>
+                            Basic customer membership
+                        </p>
+
+                        <strong>1 Point per ৳100</strong>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">🥈</div>
+
+                        <h3>Silver Membership</h3>
+
+                        <p>
+                            Extra shopping rewards
+                        </p>
+
+                        <strong>2 Points per ৳100</strong>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">🥇</div>
+
+                        <h3>Gold Membership</h3>
+
+                        <p>
+                            Premium customer benefits
+                        </p>
+
+                        <strong>3 Points per ৳100</strong>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+            <footer class="footer">
+
+                <span>
+                    © 2026 SuperShop Management Suite
+                </span>
+
+                <span>
+                    Demo interface · Sample data only
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="../js/script.js"></script>
+
+
+</body>
+
+</html>

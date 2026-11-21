@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart POS & Digital Receipt | SuperShop</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <a class="brand" href="../index.html">
+
+                <span class="brand-mark">S</span>
+
+                <span>
+                    Super<span class="brand-light">Shop</span>
+                    <small>MANAGEMENT SUITE</small>
+                </span>
+
+            </a>
+
+            <div class="nav-label">WORKSPACE</div>
+
+            <a class="nav-link" href="../index.html">
+                Overview
+            </a>
+
+            <div class="nav-label">MODULES</div>
+
+            <a class="nav-link" href="../admin/admin.html">
+                Admin Control
+            </a>
+
+            <a class="nav-link" href="../manager/manager.html">
+                Store Operations
+            </a>
+
+            <a class="nav-link" href="../inventory/inventory.html">
+                Inventory
+            </a>
+
+            <a class="nav-link active" href="pos-customer.html">
+                POS & Customers
+            </a>
+
+            <!-- ADMIN PROFILE -->
+            <div class="sidebar-bottom">
+
+                <div class="avatar">AD</div>
+
+                <div>
+                    <strong>Admin User</strong>
+                    <small>Management Suite</small>
+                </div>
+
+                <span class="online-dot"></span>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- HEADER -->
+            <header class="topbar">
+
+                <div>
+                    <div class="eyebrow">POS / CHECKOUT</div>
+
+                    <h1>Smart POS & Digital Receipt</h1>
+                </div>
+
+                <div class="top-actions">
+
+                    <button class="icon-btn" title="Notifications">
+                        🔔
+                    </button>
+
+                    <div class="top-avatar">AD</div>
+
+                </div>
+
+            </header>
+
+
+            <!-- BREADCRUMB -->
+            <div class="breadcrumbs">
+
+                <a href="../index.html">Overview</a>
+                / POS & Customer
+                / Smart POS & Digital Receipt
+
+            </div>
+
+
+            <!-- INTRODUCTION -->
+            <section class="intro-card">
+
+                <h2>Smart POS & Digital Receipt</h2>
+
+                <p>
+                    Add items to a cart, calculate the total
+                    and preview a receipt. This is a front-end
+                    demo using sample data.
+                </p>
+
+            </section>
+
+
+            <!-- POS LAYOUT -->
+            <div class="pos-layout">
+
+
+                <!-- PRODUCT SECTION -->
+                <section class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <h3>Choose Products</h3>
+                            <p>Click an item to add it to the cart</p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRODUCT SEARCH -->
+                    <input class="search-input" id="posSearch" data-search placeholder="Search products"
+                        style="margin-top:15px">
+
+
+                    <!-- PRODUCT GRID -->
+                    <div class="product-grid" id="posProducts" data-search-container>
+
+
+                        <!-- PRODUCT 1 -->
+                        <button class="product-tile" data-search-item data-add-to-cart data-name="Premium Rice"
+                            data-price="70">
+
+                            <span class="product-emoji">🍚</span>
+
+                            <b>Premium Rice</b>
+
+                            <small>Grocery · per kg</small>
+
+                            <strong>৳70.00</strong>
+
+                        </button>
+
+
+                        <!-- PRODUCT 2 -->
+                        <button class="product-tile" data-search-item data-add-to-cart data-name="Mineral Water"
+                            data-price="20">
+
+                            <span class="product-emoji">💧</span>
+
+                            <b>Mineral Water</b>
+
+                            <small>Beverages · 1 bottle</small>
+
+                            <strong>৳20.00</strong>
+
+                        </button>
+
+
+                        <!-- PRODUCT 3 -->
+                        <button class="product-tile" data-search-item data-add-to-cart data-name="Potato Chips"
+                            data-price="30">
+
+                            <span class="product-emoji">🥔</span>
+
+                            <b>Potato Chips</b>
+
+                            <small>Snacks · 1 pack</small>
+
+                            <strong>৳30.00</strong>
+
+                        </button>
+
+
+                        <!-- PRODUCT 4 -->
+                        <button class="product-tile" data-search-item data-add-to-cart data-name="Fresh Milk"
+                            data-price="90">
+
+                            <span class="product-emoji">🥛</span>
+
+                            <b>Fresh Milk</b>
+
+                            <small>Dairy · 1 litre</small>
+
+                            <strong>৳90.00</strong>
+
+                        </button>
+
+
+                        <!-- PRODUCT 5 -->
+                        <button class="product-tile" data-search-item data-add-to-cart data-name="Bananas"
+                            data-price="60">
+
+                            <span class="product-emoji">🍌</span>
+
+                            <b>Bananas</b>
+
+                            <small>Fruit · per dozen</small>
+
+                            <strong>৳60.00</strong>
+
+                        </button>
+
+
+                        <!-- PRODUCT 6 -->
+                        <button class="product-tile" data-search-item data-add-to-cart data-name="Dish Soap"
+                            data-price="120">
+
+                            <span class="product-emoji">🧴</span>
+
+                            <b>Dish Soap</b>
+
+                            <small>Household · 1 bottle</small>
+
+                            <strong>৳120.00</strong>
+
+                        </button>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- CART / RECEIPT SECTION -->
+                <section class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <h3>Current Order</h3>
+                            <p>Digital receipt preview</p>
+                        </div>
+
+                        <span class="tag">DEMO</span>
+
+                    </div>
+
+
+                    <!-- CART COUNT -->
+                    <p>
+                        Cart Items:
+                        <strong data-cart-count>0</strong>
+                    </p>
+
+
+                    <!-- CART ITEMS -->
+                    <div id="cartLines" data-cart-items>
+
+                        <div class="empty-state">
+
+                            Your cart is empty.
+
+                            <br>
+
+                            Choose a product to get started.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUBTOTAL -->
+                    <div class="cart-total">
+
+                        <span>Subtotal</span>
+
+                        <b id="cartSubtotal" data-subtotal>
+                            ৳0.00
+                        </b>
+
+                    </div>
+
+
+                    <!-- TAX -->
+                    <div class="cart-total">
+
+                        <span>Tax (5%)</span>
+
+                        <b data-tax>
+                            ৳0.00
+                        </b>
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+                    <div class="cart-total final">
+
+                        <span>Total</span>
+
+                        <strong id="cartTotal" data-total>
+                            ৳0.00
+                        </strong>
+
+                    </div>
+
+
+                    <!-- PAYMENT METHOD -->
+                    <div class="field">
+
+                        <label>Payment Method</label>
+
+                        <select data-payment-method>
+
+                            <option value="Cash">Cash</option>
+
+                            <option value="Card">Card</option>
+
+                            <option value="Mobile Banking">
+                                Mobile Banking
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- ACTION BUTTONS -->
+                    <div class="form-actions">
+
+                        <button class="button" data-clear-cart>
+                            Clear Cart
+                        </button>
+
+
+                        <button class="button button-primary" id="checkoutButton" data-checkout>
+                            Complete Demo Checkout
+                        </button>
+
+                    </div>
+
+
+                    <p class="metric-note">
+
+                        No real payment is processed.
+                        Do not enter payment credentials.
+
+                    </p>
+
+                </section>
+
+
+            </div>
+
+
+            <!-- FOOTER -->
+            <footer class="footer">
+
+                <span>
+                    © 2026 SuperShop Management Suite
+                </span>
+
+                <span>
+                    Demo interface · Sample data only
+                </span>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
