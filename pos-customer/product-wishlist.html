@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <a class="brand" href="../index.html">
+                <span class="brand-mark">S</span>
+
+                <span>
+                    Super<span class="brand-light">Shop</span>
+                    <small>MANAGEMENT SUITE</small>
+                </span>
+            </a>
+
+            <div class="nav-label">WORKSPACE</div>
+
+            <a class="nav-link" href="../index.html">
+                Overview
+            </a>
+
+            <div class="nav-label">MODULES</div>
+
+            <a class="nav-link" href="../admin/admin.html">
+                Admin Control
+            </a>
+
+            <a class="nav-link" href="../manager/manager.html">
+                Store Operations
+            </a>
+
+            <a class="nav-link" href="../inventory/inventory.html">
+                Inventory
+            </a>
+
+            <a class="nav-link active" href="../pos-customer/pos-customer.html">
+                POS & Customers
+            </a>
+
+            <!-- Admin Profile -->
+            <div class="sidebar-bottom">
+
+                <div class="avatar">AD</div>
+
+                <div>
+                    <strong>Admin User</strong>
+                    <small>Management Suite</small>
+                </div>
+
+                <span class="online-dot"></span>
+
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <div>
+                    <div class="eyebrow">
+                        CUSTOMERS / PRODUCT DISCOVERY
+                    </div>
+
+                    <h1>Product Search & Wishlist</h1>
+                </div>
+
+                <div class="top-actions">
+
+                    <button class="icon-btn" title="Notifications">
+
+                    </button>
+
+                    <div class="top-avatar">AD</div>
+
+                </div>
+
+            </header>
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumbs">
+
+                <a href="../index.html">Overview</a>
+                / POS & Customer
+                / Product Search & Wishlist
+
+            </div>
+
+            <!-- Introduction -->
+            <section class="intro-card">
+
+                <h2>Product Search & Wishlist</h2>
+
+                <p>
+                    Search the sample catalog and add products
+                    to a wishlist. This is a front-end demo
+                    using sample data.
+                </p>
+
+            </section>
+
+            <!-- Product Search -->
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h3>Explore Products</h3>
+
+                        <p>
+                            Sample catalog — wishlist controls
+                            work in this demo
+                        </p>
+                    </div>
+
+                </div>
+
+                <input class="search-input" id="wishlistSearch" placeholder="Search products..."
+                    style="margin-top:15px">
+
+            </section>
+
+            <!-- Product Cards -->
+            <div class="module-grid" id="wishlistGrid">
+
+                <!-- Product 1 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon" style="font-size:25px">
+                        🍎
+                    </div>
+
+                    <h3>Red Apples</h3>
+
+                    <p>Fruit · Available now</p>
+
+                    <strong style="display:block; margin-bottom:13px">
+                        180
+                    </strong>
+
+                    <button class="button" data-wishlist>
+                        Add to wishlist
+                    </button>
+
+                </article>
+
+                <!-- Product 2 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon" style="font-size:25px">
+                        🥛
+                    </div>
+
+                    <h3>Fresh Milk</h3>
+
+                    <p>Dairy · Available now</p>
+
+                    <strong style="display:block; margin-bottom:13px">
+                        90
+                    </strong>
+
+                    <button class="button" data-wishlist>
+                        ♡ Add to wishlist
+                    </button>
+
+                </article>
+
+                <!-- Product 3 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon" style="font-size:25px">
+                        🍪
+                    </div>
+
+                    <h3>Oat Cookies</h3>
+
+                    <p>Snacks · Available now</p>
+
+                    <strong style="display:block; margin-bottom:13px">
+                        85
+                    </strong>
+
+                    <button class="button" data-wishlist>
+                        Add to wishlist
+                    </button>
+
+                </article>
+
+                <!-- Product 4 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon" style="font-size:25px">
+                        ☕
+                    </div>
+
+                    <h3>Ground Coffee</h3>
+
+                    <p>Beverages · Available now</p>
+
+                    <strong style="display:block; margin-bottom:13px">
+                        320
+                    </strong>
+
+                    <button class="button" data-wishlist>
+                        Add to wishlist
+                    </button>
+
+                </article>
+
+                <!-- Product 5 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon" style="font-size:25px">
+                        🧴
+                    </div>
+
+                    <h3>Dish Soap</h3>
+
+                    <p>Household · Available now</p>
+
+                    <strong style="display:block; margin-bottom:13px">
+                        120
+                    </strong>
+
+                    <button class="button" data-wishlist>
+                        Add to wishlist
+                    </button>
+
+                </article>
+
+                <!-- Product 6 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon" style="font-size:25px">
+                        🍚
+                    </div>
+
+                    <h3>Premium Rice</h3>
+
+                    <p>Grocery · Available now</p>
+
+                    <strong style="display:block; margin-bottom:13px">
+                        70
+                    </strong>
+
+                    <button class="button" data-wishlist>
+                        Add to wishlist
+                    </button>
+
+                </article>
+
+            </div>
+
+            <!-- Search Function -->
+            <script>
+
+                document.addEventListener('DOMContentLoaded', function () {
+
+                    const search = document.querySelector('#wishlistSearch');
+
+                    if (search) {
+
+                        search.addEventListener('input', function () {
+
+                            document.querySelectorAll(
+                                '#wishlistGrid .feature-card'
+                            ).forEach(function (card) {
+
+                                card.classList.toggle(
+                                    'hidden',
+                                    !card.innerText.toLowerCase().includes(
+                                        search.value.toLowerCase()
+                                    )
+                                );
+
+                            });
+
+                        });
+
+                    }
+
+                });
+
+            </script>
+
+            <!-- Footer -->
+            <footer class="footer">
+
+                <span>
+                    © 2026 SuperShop Management Suite
+                </span>
+
+                <span>
+                    Demo interface · Sample data only
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
