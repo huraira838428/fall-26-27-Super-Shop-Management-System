@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperShop | Management Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="home">
+
+    <div class="app-shell">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <a class="brand" href="index.html">
+                <span class="brand-mark">S</span>
+                <span>
+                    Super<span class="brand-light">Shop</span>
+                    <small>MANAGEMENT SUITE</small>
+                </span>
+            </a>
+
+            <div class="nav-label">WORKSPACE</div>
+
+            <a class="nav-link active" href="index.html">
+                <span>▦</span> Overview
+            </a>
+
+            <div class="nav-label">MODULES</div>
+
+            <a class="nav-link" href="admin/admin.html">
+                <span>◈</span> Admin Control
+            </a>
+
+            <a class="nav-link" href="manager/manager.html">
+                <span>▤</span> Store Operations
+            </a>
+
+            <a class="nav-link" href="inventory/inventory.html">
+                <span>▣</span> Inventory
+            </a>
+
+            <a class="nav-link" href="pos-customer/pos-customer.html">
+                <span>🛒</span> POS & Customers
+            </a>
+
+            <div class="sidebar-bottom">
+                <div class="avatar">AD</div>
+                <div>
+                    <strong>Admin User</strong>
+                    <small>System Administrator</small>
+                </div>
+                <span class="online-dot"></span>
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Topbar -->
+            <header class="topbar">
+                <div>
+                    <button class="menu-toggle" id="menuToggle">☰</button>
+                    <span class="eyebrow">SUPERSHOP MANAGEMENT</span>
+                    <h1>Dashboard Overview</h1>
+                </div>
+
+                <div class="top-actions">
+                    <button class="icon-btn" title="Notifications">♧</button>
+                    <div class="top-avatar">AD</div>
+                </div>
+            </header>
+
+            <!-- Welcome Section -->
+            <section class="welcome-panel">
+
+                <div>
+                    <span class="pill pill-light">
+                        YOUR BUSINESS AT A GLANCE
+                    </span>
+
+                    <h2>Good morning, Admin 👋</h2>
+
+                    <p>
+                        Here's what's happening at your super shop today.
+                    </p>
+
+                    <a class="button button-white" href="manager/sales-dashboard.html">
+                        View sales report ↗
+                    </a>
+                </div>
+
+                <div class="welcome-art">
+                    <div class="art-circle">S</div>
+                    <div class="art-card">✦ SHOP SMARTER</div>
+                </div>
+
+            </section>
+
+            <!-- Business Snapshot -->
+            <section class="section-heading">
+
+                <div>
+                    <h2>Business Snapshot</h2>
+                    <p>Key metrics from across your store</p>
+                </div>
+
+                <select class="select-control">
+                    <option>Today</option>
+                    <option>This Week</option>
+                    <option>This Month</option>
+                </select>
+
+            </section>
+
+            <!-- Metric Cards -->
+            <section class="metric-grid">
+
+                <article class="metric-card">
+                    <div class="metric-top">
+                        <span>Total Sales</span>
+                        <span class="metric-icon mint">tk</span>
+                    </div>
+
+                    <strong>tk 48,520</strong>
+
+                    <small class="positive">
+                        ↗ 12.8% <span>vs. yesterday</span>
+                    </small>
+
+                    <div class="mini-bars">
+                        <i style="height:35%"></i>
+                        <i style="height:55%"></i>
+                        <i style="height:43%"></i>
+                        <i style="height:70%"></i>
+                        <i style="height:58%"></i>
+                        <i style="height:88%"></i>
+                        <i style="height:75%"></i>
+                    </div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-top">
+                        <span>Orders Completed</span>
+                        <span class="metric-icon lavender">▤</span>
+                    </div>
+
+                    <strong>326</strong>
+
+                    <small class="positive">
+                        ↗ 8.2% <span>vs. yesterday</span>
+                    </small>
+
+                    <div class="metric-note">
+                        Average order value <b>৳148.83</b>
+                    </div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-top">
+                        <span>Products in Stock</span>
+                        <span class="metric-icon peach">▣</span>
+                    </div>
+
+                    <strong>1,284</strong>
+
+                    <small class="warning-text">
+                        18 items <span>need attention</span>
+                    </small>
+
+                    <div class="stock-track">
+                        <span style="width:76%"></span>
+                    </div>
+
+                    <div class="metric-note">
+                        Stock health <b>76%</b>
+                    </div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-top">
+                        <span>Estimated Profit</span>
+                        <span class="metric-icon blue">↗</span>
+                    </div>
+
+                    <strong>tk 12,840</strong>
+
+                    <small class="positive">
+                        ↗ 6.4% <span>this week</span>
+                    </small>
+
+                    <div class="metric-note">
+                        Profit margin <b>26.5%</b>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- Sales and Quick Actions -->
+            <section class="content-grid">
+
+                <article class="panel sales-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Sales Performance</h3>
+                            <p>Revenue overview for the week</p>
+                        </div>
+
+                        <span class="chart-legend">
+                            <i></i> Revenue
+                        </span>
+                    </div>
+
+                    <div class="chart-total">
+                        tk 2,84,650
+                        <span class="positive">+9.4%</span>
+                    </div>
+
+                    <div class="chart" aria-label="Illustrative sales chart">
+
+                        <div class="y-labels">
+                            <span>tk50k</span>
+                            <span>tk35k</span>
+                            <span>tk20k</span>
+                            <span>tk5k</span>
+                        </div>
+
+                        <div class="chart-area">
+
+                            <div class="grid-lines">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
+
+                            <svg viewBox="0 0 600 180" preserveAspectRatio="none">
+
+                                <defs>
+                                    <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
+
+                                        <stop offset="0%" stop-color="#19a875" stop-opacity=".22" />
+
+                                        <stop offset="100%" stop-color="#19a875" stop-opacity="0" />
+                                    </linearGradient>
+                                </defs>
+
+                                <path
+                                    d="M0,135 C35,120 45,140 80,105 S130,112 160,83 S210,100 245,68 S300,82 330,58 S390,85 420,47 S475,65 510,32 S565,52 600,18 L600,180 L0,180Z"
+                                    fill="url(#fill)" />
+
+                                <path
+                                    d="M0,135 C35,120 45,140 80,105 S130,112 160,83 S210,100 245,68 S300,82 330,58 S390,85 420,47 S475,65 510,32 S565,52 600,18"
+                                    fill="none" stroke="#19a875" stroke-width="3" />
+                            </svg>
+
+                            <div class="x-labels">
+                                <span>Mon</span>
+                                <span>Tue</span>
+                                <span>Wed</span>
+                                <span>Thu</span>
+                                <span>Fri</span>
+                                <span>Sat</span>
+                                <span>Sun</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- Quick Actions -->
+                <article class="panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Quick Actions</h3>
+                            <p>Get things done faster</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-list">
+
+                        <a href="inventory/product-catalog.html">
+                            <span class="quick-icon mint">＋</span>
+                            <span>
+                                <b>Add a Product</b>
+                                <small>Create a new product listing</small>
+                            </span>
+                            <span class="arrow">↗</span>
+                        </a>
+
+                        <a href="pos-customer/smart-pos.html">
+                            <span class="quick-icon lavender">▣</span>
+                            <span>
+                                <b>Open Point of Sale</b>
+                                <small>Start a new customer order</small>
+                            </span>
+                            <span class="arrow">↗</span>
+                        </a>
+
+                        <a href="inventory/stock-alerts.html">
+                            <span class="quick-icon peach">!</span>
+                            <span>
+                                <b>Review Stock Alerts</b>
+                                <small>18 products need attention</small>
+                            </span>
+                            <span class="arrow">↗</span>
+                        </a>
+
+                        <a href="admin/backup-reports.html">
+                            <span class="quick-icon blue">▤</span>
+                            <span>
+                                <b>Generate a Report</b>
+                                <small>Review your store performance</small>
+                            </span>
+                            <span class="arrow">↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- Recent Transactions -->
+            <section class="panel table-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h3>Recent Transactions</h3>
+                        <p>Latest customer purchases</p>
+                    </div>
+
+                    <a class="text-link" href="pos-customer/smart-pos.html">
+                        View all transactions ↗
+                    </a>
+                </div>
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ORDER ID</th>
+                                <th>CUSTOMER</th>
+                                <th>DATE & TIME</th>
+                                <th>PAYMENT</th>
+                                <th>AMOUNT</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><b>#SS-1048</b></td>
+                                <td>
+                                    <span class="customer-cell">
+                                        <span class="table-avatar a1">RK</span>
+                                        Rahim Khan
+                                    </span>
+                                </td>
+                                <td>28 Oct, 10:42 AM</td>
+                                <td>Mobile banking</td>
+                                <td><b>tk 1,250</b></td>
+                                <td>
+                                    <span class="status status-success">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><b>#SS-1047</b></td>
+                                <td>
+                                    <span class="customer-cell">
+                                        <span class="table-avatar a2">NS</span>
+                                        Nusrat Sultana
+                                    </span>
+                                </td>
+                                <td>28 Oct, 10:26 AM</td>
+                                <td>Card</td>
+                                <td><b>tk 860</b></td>
+                                <td>
+                                    <span class="status status-success">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><b>#SS-1046</b></td>
+                                <td>
+                                    <span class="customer-cell">
+                                        <span class="table-avatar a3">MA</span>
+                                        Mehedi Ahmed
+                                    </span>
+                                </td>
+                                <td>28 Oct, 10:08 AM</td>
+                                <td>Cash</td>
+                                <td><b>tk 430</b></td>
+                                <td>
+                                    <span class="status status-pending">
+                                        Refund review
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                © 2026 SuperShop Management Suite
+                <span>Built for smarter retail operations</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
