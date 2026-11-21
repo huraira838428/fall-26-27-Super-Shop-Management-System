@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Super Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a class="logo" href="index.html">SUPER <span>SHOP</span></a>
+        <div class="user-info">Management System</div>
+    </header>
+
+    <main class="auth-box">
+        <section class="card">
+            <h1>Login</h1>
+            <p class="page-subtitle">Sign in to your Super Shop account.</p>
+
+            <div id="loginMessage" class="message" role="status"></div>
+
+            <form id="loginForm" action="#" method="post" onsubmit="return validateLogin();">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="error" id="passwordError"></span>
+                </div>
+
+                <div class="form-group inline-option">
+                    <label for="remember">
+                        <input type="checkbox" id="remember" name="remember">
+                        Remember me
+                    </label>
+                    <label for="showPassword">
+                        <input type="checkbox" id="showPassword" onclick="togglePassword()">
+                        Show password
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Login as:</label>
+                    <select id="role" name="role" required>
+                        <option value="">-- Select role --</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Store Manager">Store Manager</option>
+                        <option value="Inventory Manager">Inventory Manager</option>
+                        <option value="Cashier">Cashier</option>
+                        <option value="Customer">Customer</option>
+                    </select>
+                    <span class="error" id="roleError"></span>
+                </div>
+
+                <div class="form-buttons">
+                    <button class="btn" type="submit">Login</button>
+                    <button class="btn btn-secondary" type="reset" onclick="clearLoginErrors()">Reset</button>
+                </div>
+
+                <p class="auth-links">
+                    <a href="forgot-password.html">Forgot password?</a>
+                    | <a href="register.html">Create an account</a>
+                </p>
+            </form>
+        </section>
+
+
+    </main>
+
+    <footer class="footer">&copy; 2026 Super Shop Management System</footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>
