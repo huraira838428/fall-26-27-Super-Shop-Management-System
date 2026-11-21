@@ -56,3 +56,4 @@ super-shop-management/
 ## Important security note
 
 This is a browser-only learning project. Demo passwords are stored in browser localStorage, and client-side role checks can be bypassed. Do not use real customer data or real passwords. A production system needs server-side authentication, password hashing, database-backed permissions, server-side audit logs and secure backups. Payment processing is not included.
+# fall-26-27-super-shop-management-system
