@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Super Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <a class="logo" href="index.html">SUPER <span>SHOP</span></a>
+        <div class="user-info"><a href="index.html">Back to Login</a></div>
+    </header>
+
+    <main class="auth-box wide">
+        <section class="card">
+            <h1>Create Account</h1>
+            <p class="page-subtitle">Register a new Super Shop user account.</p>
+            <div class="notice">New registrations are set to Pending until an Admin approves the account.</div>
+            <div id="registerMessage" class="message" role="status"></div>
+
+            <form id="registerForm" action="#" method="post" onsubmit="return validateRegister();">
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="name">Full name:</label>
+                        <input type="text" id="name" name="name" required minlength="3">
+                        <span class="error" id="nameError"></span>
+                    </div>
+                    <div class="col form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required minlength="4">
+                        <span class="error" id="usernameError"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error" id="emailError"></span>
+                    </div>
+                    <div class="col form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <span class="error" id="phoneError"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                    <span class="error" id="addressError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Register as:</label>
+                    <select id="role" name="role" required>
+                        <option value="">-- Select role --</option>
+                        <option value="Store Manager">Store Manager</option>
+                        <option value="Inventory Manager">Inventory Manager</option>
+                        <option value="Cashier">Cashier</option>
+                        <option value="Customer">Customer</option>
+                    </select>
+                    <span class="error" id="roleError"></span>
+                    <small class="hint">Admin accounts are created by the existing Admin from Role Access.</small>
+                </div>
+
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required minlength="8">
+                        <span class="error" id="passwordError"></span>
+                        <small class="hint">At least 8 characters.</small>
+                    </div>
+                    <div class="col form-group">
+                        <label for="confirm">Confirm password:</label>
+                        <input type="password" id="confirm" name="confirm" required minlength="8">
+                        <span class="error" id="confirmError"></span>
+                    </div>
+                </div>
+
+                <div class="form-buttons">
+                    <button class="btn" type="submit">Create Account</button>
+                    <button class="btn btn-secondary" type="reset" onclick="clearRegisterErrors()">Reset</button>
+                </div>
+                <p class="auth-links">Already have an account? <a href="index.html">Login</a></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">&copy; 2026 Super Shop Management System</footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>
