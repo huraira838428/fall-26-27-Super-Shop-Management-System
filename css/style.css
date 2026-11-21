@@ -1,6 +1,6 @@
+/* SUPER SHOP MANAGEMENT SYSTEM CSS */
 /* ==============================
    1. GENERAL SETTINGS
-============================== */
 
 * {
     margin: 0;
@@ -10,6 +10,11 @@
 
 body {
     font-family: Arial, sans-serif;
+    background: #f4f6fa;
+    color: #26344a;
+}
+
+/* Main Layout */
     background: #f4f6fb;
     color: #263247;
     font-size: 14px;
@@ -29,17 +34,20 @@ select {
 
 /* ==============================
    2. MAIN LAYOUT
-============================== */
 
 .app-shell {
     display: flex;
     min-height: 100vh;
 }
 
+/* Sidebar */
+
+.sidebar {
+    width: 250px;
+    background: #172b4d;
 
 /* ==============================
    3. SIDEBAR
-============================== */
 
 .sidebar {
     width: 250px;
@@ -55,29 +63,39 @@ select {
     display: flex;
     align-items: center;
     gap: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
     font-size: 21px;
     font-weight: bold;
     margin-bottom: 45px;
 }
 
 .brand-mark {
+    background: #2878e8;
+    padding: 12px 17px;
     background: #4778f5;
     padding: 12px 16px;
     border-radius: 10px;
 }
 
 .brand-light {
+    color: #64a4ff;
     color: #83a5ff;
 }
 
 .brand small {
     display: block;
     font-size: 9px;
+    color: #aab9d0;
     color: #a6b3c9;
     margin-top: 5px;
 }
 
 .nav-label {
+    font-size: 11px;
+    color: #91a4c0;
+    margin: 20px 10px 10px;
     color: #8998b0;
     font-size: 11px;
     font-weight: bold;
@@ -88,6 +106,15 @@ select {
 .nav-link {
     display: block;
     padding: 13px;
+    margin: 5px 0;
+    color: #cbd5e1;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.nav-link span {
+    margin-right: 10px;
     color: #c2ccdd;
     border-radius: 7px;
     margin-bottom: 7px;
@@ -96,6 +123,12 @@ select {
 
 .nav-link:hover,
 .nav-link.active {
+    background: #2878e8;
+    color: white;
+}
+
+/* Sidebar Bottom */
+
     background: #30476d;
     color: white;
 }
@@ -106,11 +139,27 @@ select {
     gap: 10px;
     margin-top: auto;
     padding-top: 25px;
+    border-top: 1px solid #40516d;
     border-top: 1px solid #34435b;
 }
 
 .avatar,
 .top-avatar {
+    background: #2878e8;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.sidebar-bottom strong {
+    font-size: 13px;
+}
+
+.sidebar-bottom small {
+    display: block;
+    color: #aab9d0;
+    font-size: 11px;
     background: #4778f5;
     color: white;
     width: 38px;
@@ -136,16 +185,18 @@ select {
     margin-left: auto;
 }
 
+/* Main Content */
 
 /* ==============================
    4. MAIN CONTENT
-============================== */
 
 .main-content {
     flex: 1;
     min-width: 0;
     padding: 30px;
 }
+
+/* Header */
 
 .topbar {
     display: flex;
@@ -155,12 +206,16 @@ select {
 }
 
 .eyebrow {
+    color: #2878e8;
     color: #4778f5;
     font-size: 11px;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
+.topbar h1 {
+    font-size: 28px;
+    color: #172b4d;
 h1 {
     font-size: 27px;
     color: #17243b;
@@ -173,6 +228,9 @@ h1 {
 }
 
 .icon-btn {
+    padding: 10px 14px;
+    background: white;
+    border: 1px solid #dce3ed;
     border: none;
     background: white;
     padding: 12px;
@@ -180,6 +238,20 @@ h1 {
     cursor: pointer;
 }
 
+/* Breadcrumbs */
+
+.breadcrumbs {
+    color: #8995a7;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.breadcrumbs a {
+    color: #2878e8;
+    text-decoration: none;
+}
+
+/* Intro Card */
 .breadcrumbs {
     color: #8792a5;
     margin-bottom: 25px;
@@ -193,13 +265,79 @@ h1 {
 
 /* ==============================
    5. INTRODUCTION CARD
-============================== */
 
 .intro-card {
     background: white;
     padding: 25px;
     border-radius: 12px;
     margin-bottom: 25px;
+    border: 1px solid #e5eaf1;
+}
+
+.intro-card h2 {
+    color: #172b4d;
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.intro-card p {
+    color: #7c8798;
+    font-size: 14px;
+}
+
+/* Feature Cards */
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    background: white;
+    padding: 25px;
+    border: 1px solid #e5eaf1;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px #00000012;
+}
+
+.feature-icon {
+    background: #e7f0ff;
+    color: #2878e8;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+    color: #172b4d;
+}
+
+.feature-card p {
+    color: #7c8798;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.text-link {
+    color: #2878e8;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* Statistics Cards */
     border: 1px solid #e6eaf1;
 }
 
@@ -216,17 +354,20 @@ h1 {
 
 /* ==============================
    6. STATISTICS
-============================== */
 
 .stats-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     gap: 18px;
     margin-bottom: 25px;
 }
 
 .small-stat {
     background: white;
+    padding: 25px;
+    border: 1px solid #e5eaf1;
+    border-radius: 12px;
     padding: 22px;
     border-radius: 12px;
     border: 1px solid #e6eaf1;
@@ -234,11 +375,18 @@ h1 {
 
 .small-stat span {
     display: block;
+    color: #8995a7;
+    font-size: 13px;
     color: #8290a4;
     margin-bottom: 12px;
 }
 
 .small-stat strong {
+    color: #172b4d;
+    font-size: 25px;
+}
+
+/* Panel */
     font-size: 25px;
     color: #17243b;
 }
@@ -246,17 +394,23 @@ h1 {
 
 /* ==============================
    7. PANELS
-============================== */
 
 .panel {
     background: white;
     padding: 25px;
+    border: 1px solid #e5eaf1;
+    border-radius: 12px;
     border-radius: 12px;
     border: 1px solid #e6eaf1;
     margin-bottom: 25px;
 }
 
 .panel-heading {
+    margin-bottom: 25px;
+}
+
+.panel-heading h3 {
+    color: #172b4d;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -269,6 +423,89 @@ h1 {
 }
 
 .panel-heading p {
+    color: #8995a7;
+    font-size: 13px;
+}
+
+/* Progress Bar */
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 75px;
+    align-items: center;
+    gap: 15px;
+    margin: 22px 0;
+    font-size: 13px;
+}
+
+.progress {
+    height: 10px;
+    background: #e8edf5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress span {
+    display: block;
+    height: 100%;
+    background: #2878e8;
+    border-radius: 20px;
+}
+
+/* Notice */
+
+.notice {
+    background: #fff8e6;
+    color: #987323;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+/* Forms */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dce3ed;
+    border-radius: 7px;
+    outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: #2878e8;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+.button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button-primary {
+    background: #2878e8;
     color: #8792a5;
     font-size: 13px;
 }
@@ -276,7 +513,6 @@ h1 {
 
 /* ==============================
    8. TABLE
-============================== */
 
 .table-wrap {
     overflow-x: auto;
@@ -321,7 +557,6 @@ tr:hover {
 
 /* ==============================
    9. SEARCH BOX
-============================== */
 
 .search-input {
     width: 100%;
@@ -344,7 +579,6 @@ tr:hover {
 
 /* ==============================
    10. MODULE CARDS
-============================== */
 
 .module-grid {
     display: grid;
@@ -390,7 +624,6 @@ tr:hover {
 
 /* ==============================
    11. BUTTONS
-============================== */
 
 .button {
     background: #edf2ff;
@@ -413,6 +646,52 @@ tr:hover {
 }
 
 .button-primary:hover {
+    background: #175dbd;
+}
+
+/* Table */
+
+.data-table {
+    overflow: hidden;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background: #f4f7fb;
+    color: #718096;
+    font-size: 12px;
+    padding: 15px;
+}
+
+td {
+    padding: 16px 15px;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 13px;
+}
+
+.tag {
+    background: #dcfce7;
+    color: #15803d;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.tag.low {
+    background: #fff0cf;
+    color: #a66a00;
+}
+
+/* Footer */
     background: #315fd2;
 }
 
@@ -423,7 +702,6 @@ tr:hover {
 
 /* ==============================
    12. POS SECTION
-============================== */
 
 .pos-layout {
     display: grid;
@@ -477,7 +755,6 @@ tr:hover {
 
 /* ==============================
    13. CART AND RECEIPT
-============================== */
 
 .empty-state {
     text-align: center;
@@ -527,11 +804,26 @@ tr:hover {
 
 /* ==============================
    14. FOOTER
-============================== */
 
 .footer {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+    margin-top: 35px;
+    padding: 20px 0;
+    border-top: 1px solid #e1e6ee;
+    color: #8995a7;
+    font-size: 12px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 900px) {
+
+    .module-grid,
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
     gap: 12px;
     color: #8792a5;
     font-size: 12px;
@@ -543,13 +835,17 @@ tr:hover {
 
 /* ==============================
    15. RESPONSIVE DESIGN
-============================== */
 
 @media (max-width: 1000px) {
 
     .sidebar {
         width: 210px;
     }
+}
+
+@media (max-width: 600px) {
+    .app-shell {
+        display: block;
 
     .module-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -571,6 +867,23 @@ tr:hover {
         width: 100%;
     }
 
+    .main-content {
+        padding: 15px;
+    }
+
+    .module-grid,
+    .stats-row,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar h1 {
+        font-size: 21px;
+    }
+
+    .bar-row {
+        grid-template-columns: 75px 1fr 65px;
+        gap: 8px;
     .sidebar-bottom {
         margin-top: 20px;
     }
@@ -701,7 +1014,6 @@ tr:hover {
 /* =====================================
    ADDITIONAL CSS - SUPERSHOP PROJECT
    Keep all previous CSS code unchanged
-===================================== */
 
 /* General page styling */
 body {
