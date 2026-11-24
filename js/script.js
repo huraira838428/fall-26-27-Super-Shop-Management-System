@@ -1,470 +1,386 @@
 
-// SuperShop Management System JavaScript
+// =====================================
+// SUPERSHOP - SMART POS JAVASCRIPT
+// =====================================
 
-// Employee Task Tracker
-const taskForm = document.querySelector("[data-demo-form]");
-
-if (taskForm) {
-    taskForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const inputs = taskForm.querySelectorAll("input, select");
-
-        const task = inputs[0].value;
-        const employee = inputs[1].value;
-        const date = inputs[2].value;
-        const priority = inputs[3].value;
-
-        const table = document.querySelector(".data-table tbody");
-
-        if (table) {
-            const row = document.createElement("tr");
-
-            row.innerHTML = `
-                <td>${task}</td>
-                <td>${employee}</td>
-                <td>${date}</td>
-                <td>${priority}</td>
-                <td><span class="tag low">Pending</span></td>
-            `;
-
-            table.appendChild(row);
-        }
-
-        alert("Task added successfully!");
-
-        taskForm.reset();
-    });
-}
-
-// Notification Button
-const notification = document.querySelector(".icon-btn");
-
-if (notification) {
-    notification.addEventListener("click", function () {
-        alert("No new notifications!");
-    });
-}
-
-// Welcome Message
-console.log("Welcome to SuperShop Management System!");
 document.addEventListener("DOMContentLoaded", function () {
 
+    // TAX RATE
+    const TAX_RATE = 0.05;
+
+    // GET HTML ELEMENTS
+    const cartContainer = document.querySelector("[data-cart-items]");
+    const cartCount = document.querySelector("[data-cart-count]");
+    const subtotalElement = document.querySelector("[data-subtotal]");
+    const taxElement = document.querySelector("[data-tax]");
+    const totalElement = document.querySelector("[data-total]");
+    const searchInput = document.querySelector("#posSearch");
+    const checkoutButton = document.querySelector("[data-checkout]");
+    const clearButton = document.querySelector("[data-clear-cart]");
+    const paymentMethod = document.querySelector("[data-payment-method]");
+
+    // LOAD SAVED CART
+    let cart = JSON.parse(localStorage.getItem("supershopCart")) || [];
+
+
     // =====================================
-    // 1. SMART POS - PRODUCT SEARCH
+    // 1. SAVE CART
     // =====================================
 
-    const posSearch = document.getElementById("posSearch");
-    const posProducts = document.getElementById("posProducts");
+    function saveCart() {
 
-    if (posSearch && posProducts) {
-        posSearch.addEventListener("input", function () {
-            const searchValue = posSearch.value.toLowerCase();
+        localStorage.setItem(
+            "supershopCart",
+            JSON.stringify(cart)
+        );
 
-            const products = posProducts.querySelectorAll(".product-tile");
-
-            products.forEach(function (product) {
-                const productName = product.innerText.toLowerCase();
-
-                product.classList.toggle(
-                    "hidden",
-                    !productName.includes(searchValue)
-                );
-            });
-        });
     }
 
 
     // =====================================
-    // 2. SMART POS - SHOPPING CART
+    // 2. ADD PRODUCT TO CART
     // =====================================
 
-    const cartLines = document.getElementById("cartLines");
-    const cartSubtotal = document.getElementById("cartSubtotal");
-    const cartTotal = document.getElementById("cartTotal");
-    const checkoutButton = document.getElementById("checkoutButton");
+    document.addEventListener("click", function (event) {
 
-    let cart = [];
+        const button = event.target.closest("[data-add-to-cart]");
+
+        if (!button) return;
+
+        const name = button.dataset.name;
+        const price = Number(button.dataset.price);
+
+        if (!name || !Number.isFinite(price) || price < 0) {
+            alert("Invalid product!");
+            return;
+        }
+
+        const existingProduct = cart.find(function (item) {
+            return item.name === name;
+        });
+
+        if (existingProduct) {
+
+            existingProduct.quantity++;
+
+        } else {
+
+            cart.push({
+                name: name,
+                price: price,
+                quantity: 1
+            });
+
+        }
+
+        saveCart();
+        updateCart();
+
+    });
+
+
+    // =====================================
+    // 3. UPDATE CART DISPLAY
+    // =====================================
 
     function updateCart() {
 
-        if (!cartLines) return;
+        if (!cartContainer) return;
 
-        cartLines.innerHTML = "";
+        cartContainer.innerHTML = "";
 
         if (cart.length === 0) {
-            cartLines.innerHTML = `
-                <div class="empty-state">
-                    Your cart is empty.<br>
-                    Choose a product to get started.
-                </div>
-            `;
+
+            const emptyMessage = document.createElement("div");
+
+            emptyMessage.className = "empty-state";
+
+            emptyMessage.textContent =
+                "Your cart is empty. Choose a product to get started.";
+
+            cartContainer.appendChild(emptyMessage);
+
         }
 
-        let subtotal = 0;
 
         cart.forEach(function (item, index) {
 
-            const itemTotal = item.price * item.quantity;
-            subtotal += itemTotal;
+            const row = document.createElement("div");
 
-            const cartItem = document.createElement("div");
+            row.className = "cart-item";
 
-            cartItem.className = "cart-item";
+            const name = document.createElement("span");
 
-            cartItem.innerHTML = `
-                <div>
-                    <strong>${item.name}</strong>
-                    <p>৳${item.price.toFixed(2)} each</p>
-                </div>
+            name.textContent = item.name;
 
-                <div class="cart-controls">
-                    <button type="button" class="quantity-btn decrease"
-                        data-index="${index}">−</button>
+            const price = document.createElement("span");
 
-                    <span>${item.quantity}</span>
+            price.textContent = "৳" + item.price.toFixed(2);
 
-                    <button type="button" class="quantity-btn increase"
-                        data-index="${index}">+</button>
+            const decreaseButton = document.createElement("button");
 
-                    <strong>৳${itemTotal.toFixed(2)}</strong>
+            decreaseButton.textContent = "-";
 
-                    <button type="button" class="remove-item"
-                        data-index="${index}">×</button>
-                </div>
-            `;
+            decreaseButton.dataset.cartAction = "decrease";
 
-            cartLines.appendChild(cartItem);
+            decreaseButton.dataset.index = index;
+
+            const quantity = document.createElement("span");
+
+            quantity.textContent = item.quantity;
+
+            const increaseButton = document.createElement("button");
+
+            increaseButton.textContent = "+";
+
+            increaseButton.dataset.cartAction = "increase";
+
+            increaseButton.dataset.index = index;
+
+            const removeButton = document.createElement("button");
+
+            removeButton.textContent = "Remove";
+
+            removeButton.dataset.cartAction = "remove";
+
+            removeButton.dataset.index = index;
+
+            row.append(
+                name,
+                price,
+                decreaseButton,
+                quantity,
+                increaseButton,
+                removeButton
+            );
+
+            cartContainer.appendChild(row);
+
         });
 
-        if (cartSubtotal) {
-            cartSubtotal.textContent = "৳" + subtotal.toFixed(2);
+
+        // UPDATE ITEM COUNT
+        if (cartCount) {
+
+            const count = cart.reduce(function (sum, item) {
+                return sum + item.quantity;
+            }, 0);
+
+            cartCount.textContent = count;
+
         }
 
-        if (cartTotal) {
-            cartTotal.textContent = "৳" + subtotal.toFixed(2);
-        }
+
+        calculateTotal();
+
     }
 
 
-    // Add product to cart
+    // =====================================
+    // 4. INCREASE / DECREASE / REMOVE
+    // =====================================
 
-    if (posProducts && cartLines) {
+    document.addEventListener("click", function (event) {
 
-        posProducts.addEventListener("click", function (event) {
+        const button = event.target.closest("[data-cart-action]");
 
-            const product = event.target.closest(".product-tile");
+        if (!button) return;
 
-            if (!product) return;
+        const index = Number(button.dataset.index);
 
-            const name = product.dataset.productName;
-            const price = Number(product.dataset.productPrice);
+        const action = button.dataset.cartAction;
 
-            if (!name || !Number.isFinite(price)) return;
-
-            const existingItem = cart.find(function (item) {
-                return item.name === name;
-            });
-
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({
-                    name: name,
-                    price: price,
-                    quantity: 1
-                });
-            }
-
-            updateCart();
-        });
-    }
+        if (!Number.isInteger(index) || !cart[index]) return;
 
 
-    // Increase, decrease and remove cart products
+        if (action === "increase") {
 
-    if (cartLines) {
+            cart[index].quantity++;
 
-        cartLines.addEventListener("click", function (event) {
+        }
 
-            const index = Number(event.target.dataset.index);
+        else if (action === "decrease") {
 
-            if (!Number.isInteger(index) || !cart[index]) return;
+            cart[index].quantity--;
 
-            if (event.target.classList.contains("increase")) {
-                cart[index].quantity++;
-            }
+            if (cart[index].quantity <= 0) {
 
-            else if (event.target.classList.contains("decrease")) {
-                cart[index].quantity--;
-
-                if (cart[index].quantity <= 0) {
-                    cart.splice(index, 1);
-                }
-            }
-
-            else if (event.target.classList.contains("remove-item")) {
                 cart.splice(index, 1);
+
             }
 
-            else {
-                return;
-            }
+        }
 
-            updateCart();
+        else if (action === "remove") {
+
+            cart.splice(index, 1);
+
+        }
+
+
+        saveCart();
+
+        updateCart();
+
+    });
+
+
+    // =====================================
+    // 5. CALCULATE TOTAL
+    // =====================================
+
+    function calculateTotal() {
+
+        let subtotal = 0;
+
+        cart.forEach(function (item) {
+
+            subtotal += item.price * item.quantity;
+
         });
+
+        const tax = subtotal * TAX_RATE;
+
+        const total = subtotal + tax;
+
+
+        if (subtotalElement) {
+
+            subtotalElement.textContent =
+                "৳" + subtotal.toFixed(2);
+
+        }
+
+        if (taxElement) {
+
+            taxElement.textContent =
+                "৳" + tax.toFixed(2);
+
+        }
+
+        if (totalElement) {
+
+            totalElement.textContent =
+                "৳" + total.toFixed(2);
+
+        }
+
     }
 
 
-    // Demo checkout
+    // =====================================
+    // 6. PRODUCT SEARCH
+    // =====================================
+
+    if (searchInput) {
+
+        searchInput.addEventListener("input", function () {
+
+            const searchText = searchInput.value.toLowerCase();
+
+            document.querySelectorAll("[data-search-item]").forEach(
+                function (product) {
+
+                    const productName =
+                        product.textContent.toLowerCase();
+
+                    if (productName.includes(searchText)) {
+
+                        product.classList.remove("hidden");
+
+                    } else {
+
+                        product.classList.add("hidden");
+
+                    }
+
+                }
+            );
+
+        });
+
+    }
+
+
+    // =====================================
+    // 7. CLEAR CART
+    // =====================================
+
+    if (clearButton) {
+
+        clearButton.addEventListener("click", function () {
+
+            cart = [];
+
+            saveCart();
+
+            updateCart();
+
+        });
+
+    }
+
+
+    // =====================================
+    // 8. CHECKOUT
+    // =====================================
 
     if (checkoutButton) {
 
         checkoutButton.addEventListener("click", function () {
 
             if (cart.length === 0) {
+
                 alert("Your cart is empty!");
+
                 return;
+
             }
 
+            const method = paymentMethod
+                ? paymentMethod.value
+                : "Cash";
+
             let subtotal = 0;
-            let receipt = "SUPERSHOP - DEMO RECEIPT\n";
-            receipt += "-----------------------------\n";
 
             cart.forEach(function (item) {
 
-                const itemTotal = item.price * item.quantity;
-                subtotal += itemTotal;
+                subtotal += item.price * item.quantity;
 
-                receipt += item.name + "\n";
-                receipt += item.quantity + " x ৳" +
-                    item.price.toFixed(2) + " = ৳" +
-                    itemTotal.toFixed(2) + "\n";
             });
 
-            receipt += "-----------------------------\n";
-            receipt += "Total: ৳" + subtotal.toFixed(2);
-            receipt += "\n\nDemo transaction only.";
+            const tax = subtotal * TAX_RATE;
 
-            alert(receipt);
+            const total = subtotal + tax;
 
+
+            alert(
+                "ORDER SUCCESSFUL!\n\n" +
+                "Payment: " + method + "\n" +
+                "Subtotal: ৳" + subtotal.toFixed(2) + "\n" +
+                "Tax: ৳" + tax.toFixed(2) + "\n" +
+                "Total: ৳" + total.toFixed(2)
+            );
+
+
+            // CLEAR CART AFTER DEMO CHECKOUT
             cart = [];
+
+            saveCart();
+
             updateCart();
+
         });
+
     }
 
 
     // =====================================
-    // 3. PRODUCT WISHLIST - SEARCH
+    // 9. INITIALIZE
     // =====================================
 
-    const wishlistSearch = document.getElementById("wishlistSearch");
-    const wishlistGrid = document.getElementById("wishlistGrid");
+    updateCart();
 
-    if (wishlistSearch && wishlistGrid) {
-
-        wishlistSearch.addEventListener("input", function () {
-
-            const searchValue = wishlistSearch.value.toLowerCase();
-
-            const products = wishlistGrid.querySelectorAll(".feature-card");
-
-            products.forEach(function (product) {
-
-                product.classList.toggle(
-                    "hidden",
-                    !product.innerText.toLowerCase().includes(searchValue)
-                );
-            });
-        });
-    }
-
-
-    // =====================================
-    // 4. PRODUCT WISHLIST - SAVE / REMOVE
-    // =====================================
-
-    let wishlist = [];
-
-    try {
-        wishlist = JSON.parse(
-            localStorage.getItem("superShopWishlist")
-        ) || [];
-    } catch (error) {
-        wishlist = [];
-    }
-
-    function saveWishlist() {
-        localStorage.setItem(
-            "superShopWishlist",
-            JSON.stringify(wishlist)
-        );
-    }
-
-    if (wishlistGrid) {
-
-        const wishlistButtons = wishlistGrid.querySelectorAll("[data-wishlist]");
-
-        wishlistButtons.forEach(function (button) {
-
-            const card = button.closest(".feature-card");
-            if (!card) return;
-
-            const productName = card.querySelector("h3")?.innerText.trim();
-
-            if (wishlist.includes(productName)) {
-                button.textContent = "♥ Remove from wishlist";
-            }
-        });
-
-        wishlistGrid.addEventListener("click", function (event) {
-
-            const button = event.target.closest("[data-wishlist]");
-
-            if (!button) return;
-
-            const card = button.closest(".feature-card");
-            if (!card) return;
-
-            const productName = card.querySelector("h3")?.innerText.trim();
-
-            if (!productName) return;
-
-            if (wishlist.includes(productName)) {
-
-                wishlist = wishlist.filter(function (name) {
-                    return name !== productName;
-                });
-
-                button.textContent = "♡ Add to wishlist";
-
-                alert(productName + " removed from wishlist.");
-
-            } else {
-
-                wishlist.push(productName);
-
-                button.textContent = "♥ Remove from wishlist";
-
-                alert(productName + " added to wishlist!");
-            }
-
-            saveWishlist();
-        });
-    }
-
-
-    // =====================================
-    // 5. LOYALTY REWARDS - CUSTOMER SEARCH
-    // =====================================
-
-    const customerSearch =
-        document.getElementById("customerSearch") ||
-        document.querySelector('[data-filter-table="#loyaltyTable"]');
-
-    const loyaltyTable = document.getElementById("loyaltyTable");
-
-    if (customerSearch && loyaltyTable) {
-
-        customerSearch.addEventListener("input", function () {
-
-            const searchValue = customerSearch.value.toLowerCase();
-
-            const rows = loyaltyTable.querySelectorAll("tbody tr");
-
-            rows.forEach(function (row) {
-
-                const customerInfo = row.innerText.toLowerCase();
-
-                row.classList.toggle(
-                    "hidden",
-                    !customerInfo.includes(searchValue)
-                );
-            });
-        });
-    }
-
-
-    // =====================================
-    // 6. POS CUSTOMER PAGE - NAVIGATION
-    // =====================================
-
-    const featureLinks = document.querySelectorAll(
-        ".module-grid .feature-card .text-link"
-    );
-
-    featureLinks.forEach(function (link) {
-
-        link.addEventListener("click", function () {
-
-            // Normal HTML navigation will work.
-            // This event is kept for future enhancements.
-
-        });
-    });
-
-});
-
-/* =====================================
-   ADDITIONAL JAVASCRIPT
-   Keep previous JavaScript unchanged
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Dashboard Product Management
-
-    const productInputs = document.querySelectorAll("input");
-
-    const addProductButton = Array.from(
-        document.querySelectorAll("button")
-    ).find(function (button) {
-        return button.innerText.trim().toLowerCase() === "add product";
-    });
-
-    if (addProductButton && productInputs.length >= 2) {
-
-        addProductButton.addEventListener("click", function () {
-
-            const productName = productInputs[0].value.trim();
-            const productPrice = Number(productInputs[1].value);
-
-            if (productName === "" || productInputs[1].value === "") {
-                alert("Please enter product name and price.");
-                return;
-            }
-
-            if (!Number.isFinite(productPrice) || productPrice <= 0) {
-                alert("Please enter a valid price.");
-                return;
-            }
-
-            const productList = document.getElementById("productList");
-
-            if (!productList) {
-                alert("Product List section is not available.");
-                return;
-            }
-
-            const newProduct = document.createElement("div");
-
-            newProduct.className = "panel";
-
-            const name = document.createElement("strong");
-            name.textContent = productName;
-
-            const price = document.createElement("p");
-            price.textContent = "Price: ৳" + productPrice.toFixed(2);
-
-            newProduct.appendChild(name);
-            newProduct.appendChild(price);
-
-            productList.appendChild(newProduct);
-
-            productInputs[0].value = "";
-            productInputs[1].value = "";
-
-            alert("Product added successfully!");
-        });
-    }
+    console.log("SuperShop Smart POS Connected!");
 
 });
